@@ -1,0 +1,181 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Fakeiteasy</title>
+  <meta name="description" content="The winner fakes it all!">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Fakeiteasy</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">The winner fakes it all!</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/FakeItEasy/FakeItEasy/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/FakeItEasy/FakeItEasy/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/FakeItEasy/FakeItEasy" class="code">View Fakeiteasy on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <p><img src="http://lh5.ggpht.com/_iTnDnty4mRk/TFsS15Nuu7I/AAAAAAAAANM/EuX4rAhiF0s/FakingMock.png" alt="Are you mocking me?"></p>
+
+<h2>It's faking amazing!</h2>
+
+<pre><code>// Creating a fake object is just dead easy!
+// No mocks, no stubs, everything's a fake!
+var lollipop = A.Fake&lt;ICandy&gt;();
+var shop = A.Fake&lt;ICandyShop&gt;();
+
+// To set up a call to return a value is also simple:
+A.CallTo(() =&gt; shop.GetTopSellingCandy()).Returns(lollipop);
+
+// Use your fake as you would an actual instance of the faked type.
+var developer = new SweetTooth();
+developer.BuyTastiestCandy(shop);
+
+// Asserting uses the exact same syntax as when configuring calls,
+// no need to teach yourself another syntax.
+A.CallTo(() =&gt; shop.BuyCandy(lollipop)).MustHaveHappened();
+</code></pre>
+
+<p>In this example the lollipop instance is used as a stub and the shop instance is used as a mock but there's no need to know the difference, just fake it! Easy!</p>
+
+<h2>Description</h2>
+
+<p>A .Net dynamic fake framework for creating all types of fake objects, mocks, stubs etc.</p>
+
+<ul>
+<li>Easier semantics, all fake objects are just that - fakes - the use of the fakes determines whether they're mocks or stubs.</li>
+<li>Context aware fluent interface guides the developer.</li>
+<li>Full VB.Net support.</li>
+</ul><p>Designed for ease of use and for compatibility with both C# and VB.Net.</p>
+
+<h2>Syntax</h2>
+
+<p><strong>Creating a fake object:</strong>
+You can create fake objects in two ways in FakeItEasy, either by calls to A.Fake-methods.</p>
+
+<pre><code>IFoo foo = A.Fake&lt;IFoo&gt;();
+</code></pre>
+
+<p>Or you can create a fake object, that is a wrapper around the faked object, this object provides an api for configuring and asserting on the faked object, like this:</p>
+
+<pre><code>Fake&lt;IFoo&gt; fake = new Fake&lt;IFoo&gt;();
+IFoo = fake.FakedObject;
+</code></pre>
+
+<p><strong>Configuring a method on the fake object to return something:</strong></p>
+
+<pre><code>A.CallTo(() =&gt; foo.Bar()).Returns("test");
+</code></pre>
+
+<p><strong>Configuring calls to any method on an object</strong></p>
+
+<pre><code>A.CallTo(foo).Throws(new Exception());
+A.CallTo(foo).WithReturnType&lt;string&gt;().Returns("hello world");
+</code></pre>
+
+<p><strong>When matching calls you can mix argument constraints and concrete arguments that are matched by equality:</strong></p>
+
+<pre><code>A.CallTo(() =&gt; foo.Bar(A&lt;string&gt;.Ignored, "second argument")).Throws(new Exception());
+</code></pre>
+
+<p><strong>Return values can be produced at call time:</strong></p>
+
+<pre><code>int counter = 0;
+A.CallTo(() =&gt; foo.Baz()).Returns(() =&gt; counter++);
+</code></pre>
+
+<p><strong>Asserting</strong></p>
+
+<pre><code>A.CallTo(() =&gt; foo.Bar()).MustHaveHappened();
+A.CallTo(() =&gt; foo.Bar()).MustNotHaveHappened();
+A.CallTo(() =&gt; foo.Bar()).MustHaveHappened(Repeated.AtLeast.Once);
+A.CallTo(() =&gt; foo.Bar()).MustHaveHappened(Repeated.Never);
+A.CallTo(() =&gt; foo.Bar()).MustHaveHappened(Repeated.NoMoreThan.Times(4));
+A.CallTo(() =&gt; foo.Bar()).MustHaveHappened(Repeated.Exactly.Twice);
+</code></pre>
+
+<p><strong>Faking a class that takes arguments to constructor, no untyped object array, safe for refactoring:</strong>
+In order to pass arguments to the constructor of fakes of classes you'd use a lambda expression rather than the common method of passing object arrays representing the arguments. The expression will actually never be invoked so the constructor call in the following example will not be invoked but the arguments will be extracted from it.</p>
+
+<pre><code>var foo = A.Fake&lt;Foo&gt;(() =&gt; new Foo("string passed to constructor"));
+</code></pre>
+
+<p><strong>To raise an event on a fake object:</strong></p>
+
+<pre><code>foo.SomethingHappened += Raise.With(EventArgs.Empty).Now;
+</code></pre>
+
+<p><strong>To raise an event on a fake object in VB:</strong></p>
+
+<pre><code>AddHandler foo.SomethingHappened, AddressOf Raise.With(EventArgs.Empty).Now
+
+'If the event is an EventHandler(Of T) you can use the shorter syntax:
+
+AddHandler foo.SomethingHappened, Raise.With(EventArgs.Empty).Go
+</code></pre>
+
+<p><strong>Configuring a "Sub" call in VB:</strong></p>
+
+<pre><code>NextCall.To(foo).WithAnyArguments().Throws(New Exception())
+foo.Bar(null, null)
+</code></pre>
+
+<p><strong>Asserting on a "Sub" call in VB:</strong></p>
+
+<pre><code>NextCall.To(foo).WithAnyArguments().MustHaveHappened()
+foo.Bar(null, null)
+</code></pre>
+
+<p>In .Net 4 VB supports lambda-subs as well:</p>
+
+<pre><code>A.CallTo(Sub() foo.Bar(A&lt;object&gt;.Ignored, A&lt;object&gt;.Ignored)).MustHaveHappened()
+</code></pre>
+
+<p><strong>Configuring a "Function" in VB is just like in C#:</strong></p>
+
+<pre><code>A.CallTo(Function() foo.Baz()).Returns(10)
+</code></pre>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/FakeItEasy" class="avatar"><img src="https://secure.gravatar.com/avatar/b4d7bb42dd9168442c82ca6459bf3e81?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png" width="48" height="48"/></a> <a href="https://github.com/FakeItEasy">FakeItEasy</a> maintains <a href="https://github.com/FakeItEasy/FakeItEasy">Fakeiteasy</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="http://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/FakeItEasy/FakeItEasy/tarball/master" class="tar">tar</a><a href="https://github.com/FakeItEasy/FakeItEasy/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
