@@ -1,3 +1,16 @@
+---
+layout: nill
+
+logo_color_f: "#2C444E"
+logo_color_a: "#64545E"
+logo_color_k: "#838D61"
+logo_color_e: "#597887"
+logo_color_i: "#89622F"
+logo_color_t: "#C9B776"
+
+default_background_color: "white"
+---
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -5,137 +18,83 @@
 }
 
 body {
+    max-width: 1024px;
     font-family: Georgia, serif;
     margin: 0 auto;
-    line-height: 1.7em;
-    background: #111;
+    line-height: 1.3em;
+    background:  {{ page.default_background_color }};
+    padding: 0.5em;
+}
+
+ul { 
+    margin: 0px; 
+    padding-left: 1.25em;
+    padding-right: 1em;
 }
 
 h1, h2, h3, h4, h5, h6, .pure-button {
     font-family: Ubuntu, sans-serif;
 }
 
-.l-box {
-    padding-left: 1em;
-}
-
-.box {
-    padding: 1em;
-}
-
-.floatright {
-    float: right;
-}
-
-.header {
-    margin: 0 0;
-}
-
-.header .pure-menu {
-    padding: 0.5em;
-    background: #5C595A;
-}
-
 a {
-    color: #BCD630;
+    color: {{ page.logo_color_k }};
     text-decoration: none;
 }
 
-.pure-menu a {
-    color: black;
+.splash h2 {
+    color: {{ page.logo_color_k }};
+    line-height: 1em;
+    display: inline-block;
+    text-align: bottom;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
-.pure-menu .pure-menu-heading {
-    color: white;
-}
-
-.pure-menu .pure-menu-selected a {
-    color: white;
-}
-
-.pure-menu li a:hover,
-.pure-menu li a:focus,
-.pure-menu a:hover,
-.pure-menu a:focus {
-    background: none;
-    border: none;
-    color: #BCD630;
-}
-
-body .pure-button {
-    background: #BCD630;
-    color: #5C595A;
-    font-weight: bold;
-}
-
-.splash {
-    margin: auto auto 0;
-    padding: 1em 0.5em;
-    background: #5C595A;
-}
-
-.splash-text {
-    overflow: hidden;
-}
-
-.splash .splash-head {
-    font-size: 300%;
-    margin: 0em 0;
-    line-height: 1.2em;
-    color: #BCD630;
-}
-.splash .splash-subhead {
-    color: #BCD630;
-    font-weight: 300;
-    line-height: 1.4em;
-}
-.splash .primary-button {
-    font-size: 150%;
-}
-
+/* to align the clode block */
 .highlight {
     padding-left: 0.75em;
+    margin-right: 1em;
 }
 
-.content {
-    background: white;
-}
-
-.content .content-subhead {
-    color: #999;
-    padding-bottom: 0.3em;
-    text-transform: uppercase;
-    margin: 0;
-    border-bottom: 2px solid #eee;
-    display: inline-block;
-}
-
-.content .content-ribbon {
-    padding: 0em 2em;
+.content .section {
     border-bottom: 1px solid #eee;
 }
 
-.ribbon {
-    background: #5C595A;
+.navigation {
     text-align: center;
-    padding: 2em;
-    color: #999;
-}
-
-.ribbon h2 {
-    display: inline;
-    font-weight: normal;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .pure-button {
+    color: {{ page.default_background_color }};
     margin-bottom: 0.5em;
-    color: white;
+    font-weight: bold;
+}
+
+#button-docs {
+    background: {{ page.logo_color_f }}
+}
+
+#button-chat {
+    background: {{ page.logo_color_a }}
+}
+
+#button-project {
+    background: {{ page.logo_color_k }}
+}
+
+#button-nuget {
+    background: {{ page.logo_color_e }}
 }
 
 .footer {
-    background: #111;
-    color: #666;
-    text-align: center;
-    padding: 1em;
-    font-size: 80%;
+    padding-top: 1em;
+ }
+
+@media screen and (min-width: 40.5em) {
+    body {
+        padding: 2em;
+        line-height: 1.7em;
+    }
 }
