@@ -1,1 +1,1 @@
-Code for [FakeItEasy's website](http://fakeiteasy.github.io)
+Code for [FakeItEasy's website](https://fakeiteasy.github.io)
