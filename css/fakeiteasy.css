@@ -70,20 +70,24 @@ a {
     font-weight: bold;
 }
 
-#button-docs {
+#button-quickstart {
     background: {{ page.logo_color_f }}
 }
 
-#button-chat {
+#button-docs {
     background: {{ page.logo_color_a }}
 }
 
-#button-project {
+#button-chat {
     background: {{ page.logo_color_k }}
 }
 
-#button-nuget {
+#button-project {
     background: {{ page.logo_color_e }}
+}
+
+#button-nuget {
+    background: {{ page.logo_color_i }}
 }
 
 .footer {
