@@ -90,6 +90,10 @@ a {
     background: {{ page.logo_color_i }}
 }
 
+#button-twitter {
+    background: {{ page.logo_color_t }}
+}
+
 .footer {
     padding-top: 1em;
  }
