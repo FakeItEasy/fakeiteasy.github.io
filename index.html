@@ -1,5 +1,3 @@
----
----
 <!doctype html>
 <html lang="en">
   <head>
@@ -31,6 +29,13 @@
     <meta name="msapplication-TileColor" content="#9f00a7">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"
+      integrity="sha512-gU7kztaQEl7SHJyraPfZLQCNnrKdaQi5ndOyt4L4UPL/FHDd/uB9Je6KDARIqwnNNE27hnqoWLBq+Kpe4iHfeQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+    </script>
+    <script>hljs.highlightAll();</script>
   </head>
   <body>
     <div class="splash">
@@ -41,11 +46,11 @@
     <div class="content">
       <div class="pure-g-r section">
         <div class="pure-u-2-3">
-{% highlight csharp %}
-// Creating a fake object is just dead easy!
+          <figure class="highlight">
+            <pre><code>// Creating a fake object is just dead easy!
 // No mocks, no stubs, everything's a fake!
-var lollipop = A.Fake<ICandy>();
-var shop = A.Fake<ICandyShop>();
+var lollipop = A.Fake&lt;ICandy>();
+var shop = A.Fake&lt;ICandyShop>();
 // Easily set up a call to return a value
 A.CallTo(() => shop.GetTopSellingCandy()).Returns(lollipop);
 // Use your fake as you would an instance of the faked type.
@@ -53,8 +58,8 @@ var developer = new SweetTooth();
 developer.BuyTastiestCandy(shop);
 // Asserting uses the same syntax as configuring calls.
 // There's no need to learn another syntax.
-A.CallTo(() => shop.BuyCandy(lollipop)).MustHaveHappened();
-{% endhighlight csharp %}
+A.CallTo(() => shop.BuyCandy(lollipop)).MustHaveHappened();</pre></code>
+            </figure>
         </div>
         <div class="pure-u-1-3">
           <h3>A .Net dynamic fake framework for creating all types of fake objects, mocks, stubs etc.</h3>
