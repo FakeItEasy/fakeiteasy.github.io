@@ -1,0 +1,82 @@
+site_name: FakeItEasy
+site_dir: artifacts/docs
+repo_url: https://github.com/FakeItEasy/FakeItEasy
+extra_css: [css/fakeiteasy.css]
+
+extra:
+  version:
+    provider: mike
+
+theme:
+  name: material
+  favicon: img/favicon.ico
+  logo: img/icon.svg
+
+  palette:
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - mike:
+      canonical_version: null
+      css_dir: css
+      javascript_dir: js
+      version_selector: true
+  - search
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tilde
+
+nav:
+- FakeItEasy: index.md
+- Quickstart: quickstart.md
+- Creating Fakes:
+  - Creating Fakes: creating-fakes.md
+  - What can be faked: what-can-be-faked.md
+  - Default fake behavior: default-fake-behavior.md
+  - How to fake internal (Friend in VB) types: how-to-fake-internal-types.md
+- Specifying Fakes’ Behavior:
+  - Specifying a Call to Configure: specifying-a-call-to-configure.md
+  - Specifying Return Values: specifying-return-values.md
+  - Throwing Exceptions: throwing-exceptions.md
+  - Doing Nothing: doing-nothing.md
+  - Assigning out and ref parameters: assigning-out-and-ref-parameters.md
+  - Invoking Custom Code: invoking-custom-code.md
+  - Calling base methods: calling-base-methods.md
+  - Changing behavior between calls: changing-behavior-between-calls.md
+- Argument constraints: argument-constraints.md
+- Assertion:
+  - Assertion: assertion.md
+  - Ordered assertions: ordered-assertions.md
+- Faking async methods: faking-async-methods.md
+- Raising events: raising-events.md
+- Strict fakes: strict-fakes.md
+- Dummies:
+  - Dummies: dummies.md
+  - Custom Dummy Creation: custom-dummy-creation.md
+- Implicit Creation Options: implicit-creation-options.md
+- Formatting Argument Values: formatting-argument-values.md
+- Scanning for Extension Points: scanning-for-extension-points.md
+- Bootstrapper: bootstrapper.md
+- Analyzer Packages: https://fakeiteasy.github.io/docs/analyzers/
+- Platform support: platform-support.md
+- Source Stepping: source-stepping.md
+- Why was FakeItEasy created?: why-was-fakeiteasy-created.md
+- External Resources: external-resources.md
