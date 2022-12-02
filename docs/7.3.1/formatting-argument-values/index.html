@@ -750,6 +750,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#fakeiteasys-default-formatter-behavior" class="md-nav__link">
+    FakeItEasy's default formatter behavior
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#writing-a-custom-argument-value-formatter" class="md-nav__link">
     Writing a custom argument value formatter
   </a>
@@ -759,13 +766,6 @@
         <li class="md-nav__item">
   <a href="#how-it-works" class="md-nav__link">
     How it works
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fakeiteasys-default-formatter-behavior" class="md-nav__link">
-    FakeItEasy's default formatter behavior
   </a>
   
 </li>
@@ -959,6 +959,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#fakeiteasys-default-formatter-behavior" class="md-nav__link">
+    FakeItEasy's default formatter behavior
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#writing-a-custom-argument-value-formatter" class="md-nav__link">
     Writing a custom argument value formatter
   </a>
@@ -968,13 +975,6 @@
         <li class="md-nav__item">
   <a href="#how-it-works" class="md-nav__link">
     How it works
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fakeiteasys-default-formatter-behavior" class="md-nav__link">
-    FakeItEasy's default formatter behavior
   </a>
   
 </li>
@@ -1039,6 +1039,18 @@
 method isn't made, or when an unexpected call <em>is</em> made. Often these
 messages are adequate, but sometimes there's a need to improve upon
 them, which can be done by writing custom argument value formatters.</p>
+<h2 id="fakeiteasys-default-formatter-behavior">FakeItEasy's default formatter behavior</h2>
+<p>Unless custom formatters are provided, FakeItEasy formats argument
+values like so:</p>
+<ul>
+<li>the <code>null</code> value is formatted as <code>NULL</code>,</li>
+<li>the empty <code>string</code> is formatted as <code>string.Empty</code>,</li>
+<li>other <code>string</code> values are formatted as <code>"the string value"</code>, including the quotation marks, and</li>
+<li>any other value is formatted as its <code>ToString()</code> result</li>
+</ul>
+<p>There is no way to change FakeItEasy's behavior when formatting
+<code>null</code>, but the other behavior can be overridden by user-defined
+formatters.</p>
 <h2 id="writing-a-custom-argument-value-formatter">Writing a custom argument value formatter</h2>
 <p>Just define a class that extends <code>FakeItEasy.ArgumentValueFormatter&lt;T&gt;</code>. Here's a sample that formats argument values of type <code>Book</code>:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">BookArgumentValueFormatter</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ArgumentValueFormatter</span><span class="p">&lt;</span><span class="n">Book</span><span class="p">&gt;</span><span class="w"></span>
@@ -1094,18 +1106,6 @@ scratch, but there's no advantage to doing so over extending
 types, abstract types, and interfaces. Formatters defined for base
 types and interfaces will be used when formatting values whose types
 extend or implement the formatter's type.</p>
-<h2 id="fakeiteasys-default-formatter-behavior">FakeItEasy's default formatter behavior</h2>
-<p>Unless custom formatters are provided, FakeItEasy formats argument
-values like so:</p>
-<ul>
-<li>the <code>null</code> value is formatted as <code>NULL</code>,</li>
-<li>the empty <code>string</code> is formatted as <code>string.Empty</code>,</li>
-<li>other <code>string</code> values are formatted as <code>"the string value"</code>, including the quotation marks, and</li>
-<li>any other value is formatted as its <code>ToString()</code> result</li>
-</ul>
-<p>There is no way to change FakeItEasy's behavior when formatting
-<code>null</code>, but the other behavior can be overridden by user-defined
-formatters.</p>
 <h2 id="resolving-formatter-collisions">Resolving formatter collisions</h2>
 <p>It's possible for a solution to contain multiple formatters that would
 apply to the same types of arguments. In fact, it's guaranteed to
