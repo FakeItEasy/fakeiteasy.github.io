@@ -569,9 +569,61 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Assertion
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Assertion
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asserting-calls-made-with-mutable-arguments" class="md-nav__link">
+    Asserting Calls Made with Mutable Arguments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-advanced-assertions" class="md-nav__link">
+    More advanced assertions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vbnet" class="md-nav__link">
+    VB.NET
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -875,6 +927,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asserting-calls-made-with-mutable-arguments" class="md-nav__link">
+    Asserting Calls Made with Mutable Arguments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-advanced-assertions" class="md-nav__link">
+    More advanced assertions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vbnet" class="md-nav__link">
+    VB.NET
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -904,7 +992,7 @@ call to be asserted, followed by a method call beginning with <code>.MustHaveHap
 <p>Arguments are constrained using
 <a href="../argument-constraints/">Argument Constraints</a> just like when
 configuring calls.</p>
-<h1 id="syntax">Syntax</h1>
+<h2 id="syntax">Syntax</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">A</span><span class="p">.</span><span class="n">CallTo</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">Bar</span><span class="p">()).</span><span class="n">MustHaveHappened</span><span class="p">();</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">A</span><span class="p">.</span><span class="n">CallTo</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">Bar</span><span class="p">()).</span><span class="n">MustNotHaveHappened</span><span class="p">();</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -922,7 +1010,7 @@ configuring calls.</p>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">A</span><span class="p">.</span><span class="n">CallTo</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">Bar</span><span class="p">()).</span><span class="n">MustHaveHappenedANumberOfTimesMatching</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
 </code></pre></div>
-<h1 id="asserting-calls-made-with-mutable-arguments">Asserting Calls Made with Mutable Arguments</h1>
+<h2 id="asserting-calls-made-with-mutable-arguments">Asserting Calls Made with Mutable Arguments</h2>
 <p>When FakeItEasy records a method (or property) call, it remembers
 which objects were used as argument, but does not take a snapshot of
 the objects' state. This means that if an object is changed after
@@ -962,9 +1050,9 @@ create a snapshot of the object and interrogate it later:</p>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">Assert</span><span class="p">.</span><span class="n">That</span><span class="p">(</span><span class="n">capturedList</span><span class="p">,</span><span class="w"> </span><span class="n">Is</span><span class="p">.</span><span class="n">EqualTo</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">}));</span>
 </code></pre></div>
-<h1 id="more-advanced-assertions">More advanced assertions</h1>
+<h2 id="more-advanced-assertions">More advanced assertions</h2>
 <p>If the built-in assertion API isn't sufficient, you can also examine the list of recorded calls directly, as described in <a href="../advanced-usage/#getting-the-list-of-calls-made-on-a-fake">Getting the list of calls made on a fake</a>.</p>
-<h1 id="vbnet">VB.NET</h1>
+<h2 id="vbnet">VB.NET</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&#39; Functions and Subs can be asserted using their respective keywords
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>A.CallTo(Function() foo.Bar()).MustHaveHappened()
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>A.CallTo(Sub() foo.Baz(A(Of String).Ignored)).MustHaveHappened()

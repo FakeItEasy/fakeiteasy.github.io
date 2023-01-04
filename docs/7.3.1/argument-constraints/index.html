@@ -526,9 +526,116 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Argument constraints
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Argument constraints
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#matching-values-exactly" class="md-nav__link">
+    Matching values exactly
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-matchers" class="md-nav__link">
+    Other matchers
+  </a>
+  
+    <nav class="md-nav" aria-label="Other matchers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ignoring-arguments" class="md-nav__link">
+    Ignoring arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-convenience-matchers" class="md-nav__link">
+    More convenience matchers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-matching" class="md-nav__link">
+    Custom matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#always-place-ignored-and-that-inside-acallto" class="md-nav__link">
+    Always place Ignored and That inside A.CallTo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-correct-grammar" class="md-nav__link">
+    Using correct grammar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#out-parameters" class="md-nav__link">
+    out parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ref-parameters" class="md-nav__link">
+    ref parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overriding-argument-matchers" class="md-nav__link">
+    Overriding argument matchers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nested-argument-constraints" class="md-nav__link">
+    Nested argument constraints
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -873,6 +980,97 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#matching-values-exactly" class="md-nav__link">
+    Matching values exactly
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-matchers" class="md-nav__link">
+    Other matchers
+  </a>
+  
+    <nav class="md-nav" aria-label="Other matchers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ignoring-arguments" class="md-nav__link">
+    Ignoring arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-convenience-matchers" class="md-nav__link">
+    More convenience matchers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-matching" class="md-nav__link">
+    Custom matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#always-place-ignored-and-that-inside-acallto" class="md-nav__link">
+    Always place Ignored and That inside A.CallTo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-correct-grammar" class="md-nav__link">
+    Using correct grammar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#out-parameters" class="md-nav__link">
+    out parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ref-parameters" class="md-nav__link">
+    ref parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overriding-argument-matchers" class="md-nav__link">
+    Overriding argument matchers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nested-argument-constraints" class="md-nav__link">
+    Nested argument constraints
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -896,7 +1094,7 @@
 the arguments of the call can be constrained so that only calls to the
 configured method where the arguments matches the constraint are
 selected.</p>
-<h1 id="matching-values-exactly">Matching values exactly</h1>
+<h2 id="matching-values-exactly">Matching values exactly</h2>
 <p>Assume the following interface exists:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IFoo</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
@@ -919,8 +1117,8 @@ equality rather than value equality. In that case, the objects have to
 be <em>the same object</em> in order to match, and this sometimes produces
 unexpected results. When in doubt, verify the type's <code>Equals</code>
 behavior manually.</p>
-<h1 id="other-matchers">Other matchers</h1>
-<h2 id="ignoring-arguments">Ignoring arguments</h2>
+<h2 id="other-matchers">Other matchers</h2>
+<h3 id="ignoring-arguments">Ignoring arguments</h3>
 <p>Suppose the value of the integer in the <code>Bar</code> call wasn't important,
 but the string was. Then the following constraint could be used:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">A</span><span class="p">.</span><span class="n">CallTo</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">Bar</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">.</span><span class="n">Ignored</span><span class="p">)).</span><span class="n">MustHaveHappened</span><span class="p">();</span>
@@ -930,7 +1128,7 @@ but the string was. Then the following constraint could be used:</p>
 <p>An underscore (<code>_</code>) can be used as a shorthand for <code>Ignored</code> as well:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">A</span><span class="p">.</span><span class="n">CallTo</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">foo</span><span class="p">.</span><span class="n">Bar</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">.</span><span class="n">_</span><span class="p">)).</span><span class="n">MustHaveHappened</span><span class="p">();</span>
 </code></pre></div></p>
-<h2 id="more-convenience-matchers">More convenience matchers</h2>
+<h3 id="more-convenience-matchers">More convenience matchers</h3>
 <p>If more complicated constraints are needed, the <code>That</code> method can be
 used. There are a few built-in matchers:</p>
 <table>
@@ -1015,7 +1213,7 @@ used. There are a few built-in matchers:</p>
 </tr>
 </tbody>
 </table>
-<h2 id="custom-matching">Custom matching</h2>
+<h3 id="custom-matching">Custom matching</h3>
 <p>If none of the canned matchers are sufficient, you can provide a
 predicate to perform custom matching using <code>That.Matches</code>. Like in
 this rather contrived example:</p>
@@ -1029,7 +1227,7 @@ supply your own as well), but you must supply a description when using
 a <code>Func</code>.</p>
 <p>For another example of using <code>That.Matches</code>, see Jonathan Channon's
 <a href="https://blog.jonathanchannon.com/2013/09/11/comparing-object-instances-with-fakeiteasy">Comparing object instances with FakeItEasy</a>.</p>
-<h2 id="always-place-ignored-and-that-inside-acallto">Always place <code>Ignored</code> and <code>That</code> inside <code>A.CallTo</code></h2>
+<h3 id="always-place-ignored-and-that-inside-acallto">Always place <code>Ignored</code> and <code>That</code> inside <code>A.CallTo</code></h3>
 <p>The <code>Ignored</code> (and <code>_</code>) and <code>That</code> matchers must be placed within the
 expression inside the <code>A.CallTo</code> call. This is because these special
 constraint methods do not return an actual matcher object. They tell
@@ -1047,7 +1245,7 @@ with a vowel sound. For instance:</p>
 </code></pre></div>
 <p><code>A&lt;T&gt;</code> and <code>An&lt;T&gt;</code> are exact synonyms and can be used exactly the same
 way.</p>
-<h1 id="out-parameters"><code>out</code> parameters</h1>
+<h2 id="out-parameters"><code>out</code> parameters</h2>
 <p>The incoming argument value of <code>out</code> parameters is ignored when matching
 calls. The incoming value of an <code>out</code> parameter can't be seen by the
 method body anyhow, so there's no advantage to constraining by it.</p>
@@ -1064,7 +1262,7 @@ method body anyhow, so there's no advantage to constraining by it.</p>
 <p>See
 <a href="assigning-out-and-ref-parameters#implicitly-assigning-out-parameter-values">Implicitly Assigning <code>out</code> Parameter Values</a>
 to learn how the initial <code>configurationValue</code> is used in this case.</p>
-<h1 id="ref-parameters"><code>ref</code> parameters</h1>
+<h2 id="ref-parameters"><code>ref</code> parameters</h2>
 <p>Due to the limitations of working with <code>ref</code> parameters in C#, only exact-value matching is possible using argument constraints,
 and the argument value must be compared against a local variable or a field:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">someValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
@@ -1074,7 +1272,7 @@ and the argument value must be compared against a local variable or a field:</p>
 or <code>WhenArgumentsMatch</code>, described below.</p>
 <p>In addition to constraining by <code>ref</code> argument values, calls can be explicitly configured to
 <a href="assigning-out-and-ref-parameters">assign outgoing <code>ref</code> argument values</a>.</p>
-<h1 id="overriding-argument-matchers">Overriding argument matchers</h1>
+<h2 id="overriding-argument-matchers">Overriding argument matchers</h2>
 <p>Sometimes individually constraining arguments isn't sufficient. In
 such a case, other methods may be used to determine which calls match
 the fake's configuration.</p>
@@ -1104,7 +1302,7 @@ parameters (if a method has more parameters, use the variant described above):</
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="n">theString</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">theInt</span><span class="p">.</span><span class="n">ToString</span><span class="p">()))</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">Exception</span><span class="o">&gt;</span><span class="p">();</span>
 </code></pre></div>
-<h1 id="nested-argument-constraints">Nested argument constraints</h1>
+<h2 id="nested-argument-constraints">Nested argument constraints</h2>
 <p>Note that an argument constraint cannot be "nested" in an argument; the
 constraint has to be the whole argument. For instance, the following call
 configurations are invalid and will throw an exception:</p>
