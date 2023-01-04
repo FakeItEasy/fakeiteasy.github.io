@@ -895,8 +895,8 @@
 
 <h1 id="doing-nothing">Doing Nothing</h1>
 <p>Sometimes you want a call to be ignored. That can be configured like so:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">A</span><span class="p">.</span><span class="n">CallTo</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">aFake</span><span class="p">.</span><span class="n">SomeVoidMethodThatShouldDoNothing</span><span class="p">())</span><span class="w"></span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w"> </span><span class="p">.</span><span class="n">DoesNothing</span><span class="p">();</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">A</span><span class="p">.</span><span class="n">CallTo</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">aFake</span><span class="p">.</span><span class="n">SomeVoidMethodThatShouldDoNothing</span><span class="p">())</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w"> </span><span class="p">.</span><span class="n">DoesNothing</span><span class="p">();</span>
 </code></pre></div></p>
 <p>This is quite close to what a default Fake's
 <a href="./#overrideable-members-are-faked">unconfigured member will do</a>,
