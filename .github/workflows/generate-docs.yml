@@ -26,6 +26,7 @@ on:
         options:
         - "auto-merge"
         - "pull-request"
+        default: "pull-request"
 
 jobs:
 
@@ -85,6 +86,8 @@ jobs:
             --message "$message"
       - name: Create pull request
         if: github.event.inputs.publish-mode == 'pull-request'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           docsBranch="${{ steps.generate-docs.outputs.docs-branch }}"
           git push origin "$docsBranch:$docsBranch"
