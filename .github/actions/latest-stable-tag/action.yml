@@ -1,0 +1,12 @@
+name: Get latest stable tag
+description: Gets the latest stable tag in a Git repository
+inputs:
+  repo-path:
+    description: Path to the repository
+    required: true
+outputs:
+  latest-tag:
+    description: Latest stable tag that was found in the repo
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
