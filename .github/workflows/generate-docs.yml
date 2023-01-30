@@ -19,11 +19,13 @@ on:
         type: string
         required: true
         description: "Output path prefix"
-      auto-merge:
-        type: boolean
-        required: false
-        default: false
-        description: "Whether to automatically merge the branch with the generated docs. If false, creates a pull request instead."
+      publish-mode:
+        type: choice
+        required: true
+        description: "Publish mode"
+        options:
+        - "auto-merge"
+        - "pull-request"
 
 jobs:
 
@@ -82,13 +84,13 @@ jobs:
             --config-file source/mkdocs.yml \
             --message "$message"
       - name: Create pull request
-        if: ${{ github.event.inputs.auto-merge == false }}
+        if: github.event.inputs.publish-mode == 'pull-request'
         run: |
           docsBranch="${{ steps.generate-docs.outputs.docs-branch }}"
           git push origin "$docsBranch:$docsBranch"
           gh pr create --base master --head "$docsBranch" --fill
       - name: Merge changes
-        if: ${{ github.event.inputs.auto-merge == true }}
+        if: github.event.inputs.publish-mode == 'auto-merge'
         run: |
           git merge "${{ steps.generate-docs.outputs.docs-branch }}"
           git push
