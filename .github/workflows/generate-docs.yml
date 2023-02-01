@@ -73,11 +73,12 @@ jobs:
         run: |
           version=${{ github.event.inputs.version }}
           aliasClause=
-          message="Generate docs from ${{ github.event.inputs.source-repo }}@${{ steps.get-source-commit.outputs.sha1 }}"
+          versionForMessage=$version
           if [ "$version" = "${{ steps.get-latest-tag.outputs.latest-tag }}" ]; then
             aliasClause="stable --update-aliases"
-            message="$message (stable)"
+            versionForMessage="$versionForMessage, stable"
           fi
+          message="Generate docs from ${{ github.event.inputs.source-repo }}@${{ steps.get-source-commit.outputs.sha1 }} ($versionForMessage)"
           targetBranch=update-$version-docs
           echo "docs-branch=$targetBranch" >> $GITHUB_OUTPUT
           git branch $targetBranch
