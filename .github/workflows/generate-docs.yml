@@ -24,6 +24,7 @@ on:
         required: true
         description: "Publish mode"
         options:
+        - "none"
         - "auto-merge"
         - "pull-request"
         default: "pull-request"
