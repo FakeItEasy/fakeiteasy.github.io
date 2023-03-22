@@ -71,6 +71,8 @@ jobs:
           echo "sha1=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: Generate the docs
         id: generate-docs
+        env:
+          SNIPPETS_REPO_ROOT: source
         run: |
           version=${{ github.event.inputs.version }}
           aliasClause=
