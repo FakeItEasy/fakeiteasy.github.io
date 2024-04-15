@@ -1123,8 +1123,9 @@ following entities can be faked:</p>
 <p>Note that special steps will need to be taken to
 <a href="../how-to-fake-internal-types/">fake internal interfaces and classes</a>.</p>
 <h3 id="types-whose-methods-have-in-parameters">Types whose methods have <code>in</code> parameters</h3>
-<p>Generic types that contain methods having a parameter modified by the <code>in</code> keyword cannot be faked by FakeItEasy.
-This limitation is tracked as <a href="https://github.com/FakeItEasy/FakeItEasy/issues/1382">issue 1382</a>.</p>
+<p>Due to deficiencies in earlier .NET framework releases, generic types that contain methods having
+a parameter modified by the <code>in</code> keyword cannot be faked by FakeItEasy running on target frameworks
+earlier than .NET 6.</p>
 <h3 id="where-do-the-constructor-arguments-come-from">Where do the constructor arguments come from?</h3>
 <ul>
 <li>they can be supplied via <code>WithArgumentsForConstructor</code> as shown in
