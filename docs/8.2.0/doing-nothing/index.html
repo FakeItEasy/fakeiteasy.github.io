@@ -985,13 +985,26 @@
 <p>This is quite close to what a default Fake's
 <a href="../default-fake-behavior/#overrideable-members-are-faked">unconfigured member will do</a>,
 but there a few situations where you may need to make the <code>DoesNothing</code> call
-explicitly.</p>
-<p>If the <a href="../strict-fakes/">Fake is strict</a>, an unconfigured call will throw an exception, so <code>DoesNothing</code> can be used to allow a call to a member on the Fake.</p>
-<p>Or, <code>DoesNothing</code> can be used to change the behavior that an already-configured call is supposed to have. For example, if a call is <a href="../throwing-exceptions/">set to throw an exception</a>, that can be overridden. For more on this kind of thing, see how to <a href="../changing-behavior-between-calls/#overriding-the-behavior-for-a-call">override the behavior for a call</a>.</p>
-<p><strong>Note that <code>DoesNothing</code> is only applicable when configuring members that have a
-<code>void</code> return (or <code>Task</code>, which is the async equivalent of <code>void</code>).</strong> To override
-behavior on already-configured (or strict) members that return values, you must
+explicitly. Here are some examples:</p>
+<ul>
+<li>To allow a call to a member on a <a href="../strict-fakes/">strict Fake</a>, where an otherwise
+  unconfigured call will throw an exception.</li>
+<li>To change the behavior that an already-configured call is supposed to have.
+  For example, if a call is <a href="../throwing-exceptions/">set to throw an exception</a>, that can be
+  overridden. For more on this kind of thing, see how to
+  <a href="../changing-behavior-between-calls/#overriding-the-behavior-for-a-call">override the behavior for a call</a>.</li>
+<li>To fulfill FakeItEasy's configuration API requirements by providing an action when applying 
+  <a href="../capturing-arguments/">capturing arguments</a> to a Fake's member. Aside from capturing, you may
+  not want to change the behavior of the member, but you have to use some action to complete the
+  chained calls that configure the method.</li>
+</ul>
+<details class="note" open="open">
+<summary>Only applies to members that return nothing</summary>
+<p>Note that <code>DoesNothing</code> is only applicable when configuring members that have a
+<code>void</code> return (or <code>Task</code>, which is the async equivalent of <code>void</code>). To override
+behavior on members that return values, you must
 instead <a href="../specifying-return-values/">configure a preferred return value</a>.</p>
+</details>
 
 
 
