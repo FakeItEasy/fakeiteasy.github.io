@@ -1,0 +1,33 @@
+name: Generate FakeItEasy docs
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        required: true
+        description: "Documentation version to generate"
+      source-ref:
+        type: string
+        required: true
+        description: "Git ref of the source repo"
+        default: master
+      publish-mode:
+        type: choice
+        required: true
+        description: "Publish mode"
+        options:
+        - "none"
+        - "auto-merge"
+        - "pull-request"
+        default: "pull-request"
+
+jobs:
+  generate-docs:
+    uses: ./.github/workflows/generate-docs.yml
+    with:
+      version: ${{ inputs.version }}
+      source-ref: ${{ inputs.source-ref }}
+      source-repo: 'FakeItEasy/FakeItEasy'
+      output-prefix: docs
+      publish-mode: ${{ inputs.publish-mode }}

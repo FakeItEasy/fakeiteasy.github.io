@@ -28,6 +28,29 @@ on:
         - "auto-merge"
         - "pull-request"
         default: "pull-request"
+  workflow_call:
+    inputs:
+      version:
+        type: string
+        required: true
+        description: "Documentation version to generate"
+      source-repo:
+        type: string
+        required: true
+        description: "Repository to build from"
+      source-ref:
+        type: string
+        required: true
+        description: "Git ref of the source repo"
+      output-prefix:
+        type: string
+        required: true
+        description: "Output path prefix"
+      publish-mode:
+        type: string
+        required: true
+        description: "Publish mode"
+        default: "pull-request"
 
 jobs:
 
