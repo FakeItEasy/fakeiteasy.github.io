@@ -24,6 +24,7 @@ on:
 
 jobs:
   generate-docs:
+    secrets: inherit
     uses: ./.github/workflows/generate-docs.yml
     with:
       version: ${{ inputs.version }}
