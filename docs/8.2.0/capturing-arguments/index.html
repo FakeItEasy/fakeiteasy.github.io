@@ -1170,8 +1170,8 @@ We can record the first argument to each <code>Log</code> call in a variable of 
 <li>use the <code>Captured</code> object's <code>_</code> member to configure the call to capture any values for that argument
   (this is analogous to the <code>A&lt;T&gt;._</code> member, and just like it, there is a matching <code>Ignored</code> member in
   case you prefer that name)</li>
-<li>specify that the method will <a href="../doing-nothing/">do nothing</a>. 
-  As with any attempt to <a href="specifying-a-call-to-configure">configure a fake object's behavior</a>, it's the final
+<li>specify that the method will <a href="../doing-nothing/">do nothing</a>.
+  As with any attempt to <a href="../specifying-a-call-to-configure/">configure a fake object's behavior</a>, it's the final
   action that completes the <code>A.CallTo</code> sequence. Without it, there's no change to the fake object's
   behavior, and no values will be captured on calls to the method. You don't need to pair <code>DoesNothing</code> with
   configuration that uses a capturing argument: you could return values, throw exceptions, or whatever;

@@ -625,6 +625,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#arguments-of-anonymous-types" class="md-nav__link">
+    Arguments of anonymous types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#overriding-argument-matchers" class="md-nav__link">
     Overriding argument matchers
   </a>
@@ -1149,6 +1156,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#arguments-of-anonymous-types" class="md-nav__link">
+    Arguments of anonymous types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#overriding-argument-matchers" class="md-nav__link">
     Overriding argument matchers
   </a>
@@ -1336,7 +1350,7 @@ of the matcher when an <code>Expression</code> is supplied (although you may
 supply your own as well), but you must supply a description when using
 a <code>Func</code>.</p>
 <p>For another example of using <code>That.Matches</code>, see Jonathan Channon's
-<a href="https://blog.jonathanchannon.com/2013/09/11/comparing-object-instances-with-fakeiteasy">Comparing object instances with FakeItEasy</a>.</p>
+<a href="https://blog.jonathanchannon.com/2013/09/11/comparing-object-instances-with-fakeiteasy/">Comparing object instances with FakeItEasy</a>.</p>
 <h3 id="always-place-ignored-and-that-inside-acallto">Always place <code>Ignored</code> and <code>That</code> inside <code>A.CallTo</code></h3>
 <p>The <code>Ignored</code> (and <code>_</code>) and <code>That</code> matchers must be placed within the
 expression inside the <code>A.CallTo</code> call. This is because these special
@@ -1370,7 +1384,7 @@ method body anyhow, so there's no advantage to constraining by it.</p>
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">Assert</span><span class="p">.</span><span class="n">That</span><span class="p">(</span><span class="n">success</span><span class="p">,</span><span class="w"> </span><span class="n">Is</span><span class="p">.</span><span class="n">True</span><span class="p">);</span>
 </code></pre></div>
 <p>See
-<a href="assigning-out-and-ref-parameters#implicitly-assigning-out-parameter-values">Implicitly Assigning <code>out</code> Parameter Values</a>
+<a href="../assigning-out-and-ref-parameters/#implicitly-assigning-out-parameter-values">Implicitly Assigning <code>out</code> Parameter Values</a>
 to learn how the initial <code>configurationValue</code> is used in this case.</p>
 <h2 id="ref-parameters"><code>ref</code> parameters</h2>
 <p>Due to the limitations of working with <code>ref</code> parameters in C#, only exact-value matching is possible using argument constraints,
@@ -1381,7 +1395,12 @@ and the argument value must be compared against a local variable or a field:</p>
 <p>To perform more sophisticated matching of <code>ref</code> parameter values in C#, use constraints that work on the entire call, such as <code>WithAnyArguments</code>
 or <code>WhenArgumentsMatch</code>, described below.</p>
 <p>In addition to constraining by <code>ref</code> argument values, calls can be explicitly configured to
-<a href="assigning-out-and-ref-parameters">assign outgoing <code>ref</code> argument values</a>.</p>
+<a href="../assigning-out-and-ref-parameters/">assign outgoing <code>ref</code> argument values</a>.</p>
+<h2 id="arguments-of-anonymous-types">Arguments of anonymous types</h2>
+<p>Anonymous types are not shared between assemblies, so it's not possible to make an argument
+constraint that matches an anonymous type from another assembly. Instead, you may use
+<code>A.CallTo(fake).Where(...)</code> as described in
+<a href="../specifying-a-call-to-configure/#specifying-a-call-to-any-method-or-property">Specifying a call to any method or property</a>.</p>
 <h2 id="overriding-argument-matchers">Overriding argument matchers</h2>
 <p>Sometimes individually constraining arguments isn't sufficient. In
 such a case, other methods may be used to determine which calls match
