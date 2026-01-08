@@ -69,15 +69,10 @@ jobs:
           ref: ${{ inputs.source-ref }}
           path: source
           fetch-depth: 0
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
         with:
-          python-version: 3.11
-          architecture: x64
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install -r source/requirements.txt
+          version: '0.9.4'
       - name: Configure Git
         run: |
           git config user.name "afakebot"
@@ -108,7 +103,7 @@ jobs:
           targetBranch=update-$version-docs
           echo "docs-branch=$targetBranch" >> $GITHUB_OUTPUT
           git branch $targetBranch
-          mike deploy "$version" $aliasClause \
+          uv mike deploy "$version" $aliasClause \
             --branch "$targetBranch" \
             --prefix "${{ inputs.output-prefix }}" \
             --config-file source/mkdocs.yml \
