@@ -103,10 +103,10 @@ jobs:
           targetBranch=update-$version-docs
           echo "docs-branch=$targetBranch" >> $GITHUB_OUTPUT
           git branch $targetBranch
-          uv mike deploy "$version" $aliasClause \
+          uv run --project source/docs mike deploy "$version" $aliasClause \
             --branch "$targetBranch" \
-            --prefix "${{ inputs.output-prefix }}" \
-            --config-file source/mkdocs.yml \
+            --deploy-prefix "${{ inputs.output-prefix }}" \
+            --config-file source/docs/mkdocs.yml \
             --message "$message"
       - name: Create pull request
         if: inputs.publish-mode == 'pull-request'
