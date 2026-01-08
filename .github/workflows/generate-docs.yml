@@ -103,7 +103,7 @@ jobs:
           targetBranch=update-$version-docs
           echo "docs-branch=$targetBranch" >> $GITHUB_OUTPUT
           git branch $targetBranch
-          uv run --project source/docs mike deploy "$version" $aliasClause \
+          uv --project source/docs run mike deploy "$version" $aliasClause \
             --branch "$targetBranch" \
             --deploy-prefix "${{ inputs.output-prefix }}" \
             --config-file source/docs/mkdocs.yml \
